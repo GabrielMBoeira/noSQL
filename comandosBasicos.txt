@@ -1,0 +1,41 @@
+help
+cls
+show dbs
+use wm
+show dbs
+db.createCollection('estados')
+show dbs
+show collections
+db.createCollection('Estados')
+show collections
+db.Estados.drop()
+show collections
+db.estados.drop()
+show collections
+show dbs
+
+
+db.estados.find({$or: [{sigla: "RJ"}, {sigla: "AC"}]}).pretty()  este é: ou / or em ingles
+
+db.estados.find({$and: [{sigla: "RJ"}, {sigla: "AC"}]}).pretty()  este é: e / and em ingles
+
+db.estados.find({populacao:{$exists: true}}) este é consulta dos estados que contém o atributo populacao.
+
+db.estados.find().skip(1)  pular o primeiro registro de consulta.
+
+db.estados.find().skip(1).limit(2) pular o primeiro registro de consulta e trazer os o limit de 2 registros
+
+db.estados.count()   quantidades de registro que há na coleção estados.
+
+db.estados.find({sigla: "SP"}, {nome: 1, sigla: 1}) consulta para trazer todos que tem a sigla SP e mostrar somente nome e sigla (por padrão o id tbm vem)
+
+db.estados.find({sigla: "SP"}, {nome: 1, sigla: 1, _id: 0}) zerando o id da consulta. 
+
+db.estados.find({sigla: "SP"}, {"cidades.nome": 1, _id: 0}) trazer nome das cidades dentro de uma sigla (ARRAY)
+
+
+
+
+
+
+
